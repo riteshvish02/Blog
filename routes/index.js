@@ -71,14 +71,14 @@ router.get('/profile',isLoggedIn,async function(req, res) {
 });
 
 
-router.get('/deleteblog/:id',async function(req, res) {
+router.get('/deleteblog/:id',isLoggedIn,async function(req, res) {
   const blogs = await blogModel.findOneAndDelete({_id:req.params.id})
   res.redirect('/profile');
   // res.send("okk")
 });
 
 
-router.get('/postblog',function(req, res) {
+router.get('/postblog',isLoggedIn,function(req, res) {
   res.render('blog');
 });
 
@@ -106,7 +106,7 @@ function isLoggedIn(req,res,next){
   }
 }
 
-router.post('/blogpost',upload.single("file"),async function(req, res) {
+router.post('/blogpost',isLoggedIn,upload.single("file"),async function(req, res) {
  
   let blog =  await blogModel.create({
     description:req.body.description,
