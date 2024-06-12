@@ -77,7 +77,11 @@ router.get('/deleteblog/:id',isLoggedIn,async function(req, res) {
   // res.send("okk")
 });
 
-
+router.get('/deleteuser/:id',isLoggedIn,async function(req, res) {
+  const user = await userModel.findOne({_id:req.params.id})
+  res.redirect('/');
+  // res.send("okk")
+});
 router.get('/postblog',isLoggedIn,function(req, res) {
   res.render('blog');
 });
