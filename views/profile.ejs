@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+</head>
+<body>
+   <div class="w-full h-[100vh]" >
+      <nav class="absolute top-0 bg-white mb-8 border-b-[1.2px] flex items-center justify-between px-[8vh] h-[8vh] w-full shadow-md border-zinc-300">
+        <h2 class="font-semibold text-2xl italic font-mono">Blog Website</h2>
+        <div class="flex items-center justify-center gap-7">
+            <a href="/postblog" class="text-zinc-500"><i class="ri-edit-box-line"></i> Write</a>
+            <a href="/edit" class="w-[5vh] h-[5vh] bg-red-500 rounded-full">
+                <img src="<%=user.img%>" alt="">
+            </a>
+        </div>
+      </nav>
+     <div class="blog mt-[10vh] p-3">
+        <div class="min-h-screen flex-wrap p-1 items-center bg-gray-100">
+
+            <%if (blogs){%>
+                <%blogs.forEach(function(blog) {%>
+                    <div class=" gap-4">
+                 
+                        <div class="w-[50vh] bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition duration-300">
+                          <img src="/images/uploads/<%=blog.img%>" class="h-56 w-full object-cover">
+                          <div class="p-4">
+                            <h2 class="my-1 text-2xl font-bold leading-tight text-gray-800"><%=blog.title%></h2>
+                            <div class="flex items-center mt-2">
+                              <p class="text-sm font-medium text-gray-600 ml-2">By Author Name</p>
+                            </div>
+                            <time datetime="2023-03-13" class="text-sm uppercase font-semibold mt-1 text-gray-400">13th Mar 2023</time>
+                            <p class="text-sm mt-4 text-gray-700"><%=blog.description%></p>
+                            <a href="/deleteblog/<%=blog._id%>" class="mt-4 py-2 px-4 rounded-full font-medium border border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white transition duration-300 inline-block">
+                              Delete Blog <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                            <div class="flex justify-between mt-4">
+                              <div>
+                                <span class="px-2 py-1 text-sm bg-gray-200 text-gray-800 rounded-full">Tag 1</span>
+                                <span class="px-2 py-1 text-sm bg-gray-200 text-gray-800 rounded-full ml-2">Tag 2</span>
+                              </div>
+                             
+                            </div>
+                          </div>
+                        </div>
+                        
+                        
+                        
+                            <!-- Card 3 -->
+                            
+                          
+                        
+                             
+                          </div>
+                <%})%>
+            <%}else{%>
+                <h2 class="text-center absolute z-40 text-black text-lg">No blogs yet!</h2>
+            <%}%>
+            
+         </div>
+         
+     </div>
+   </div>
+</body>
+</html>

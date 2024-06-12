@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/bootstrap-wysiwyg/bootstrap3-wysiwyg/master/src/bootstrap3-wysihtml5.css">
+</head>
+<style>
+    .btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+input[readonly] {
+  background-color: white !important;
+  cursor: text !important;
+}
+
+/* this is only due to codepen display don't use this outside of codepen */
+.container {
+  padding-top: 20px;
+}
+</style>
+<body>
+   <div class="w-full h-[100vh]" >
+      <nav class="border-b-[1.2px] flex items-center justify-between px-[8vh] h-[8vh] w-full shadow-md border-zinc-300">
+        <h2 class="font-semibold text-2xl italic font-mono">Blog Website</h2>
+        <div class="flex items-center justify-center gap-7">
+            <div class="w-[5vh] h-[5vh] bg-red-500 rounded-full"></div>
+        </div>
+      </nav>
+     <div class="w-full flex items-center justify-center h-[100vh] border">
+        <div class="container bg-white shadow-lg border rounded-md w-[60vw] h-[90vh]">
+            <form action="/blogpost" method="post" enctype="multipart/form-data">
+              <div class="flex flex-col">
+                <input class="focus:border-blue-300 py-[3vh] text-zinc-500 text-[5vh] font-mono border rounded-md px-4 outline-none" placeholder="Title"  type="text" name="title">
+                <textarea placeholder="Description" class="focus:border-blue-300 py-[3vh] mt-4 text-zinc-900 border rounded-md text-[2vh] font-mono  px-4 outline-none h-[30vh]" name="" id=""></textarea>
+                <div  id="uploadform"  class="w-full  py-3 mt-10">
+                  <input hidden type="file" name="file">
+                  <!-- <div class="flex flex-col items-center gap-2 mt-20">
+                    <div class="image w-[25vw] h-[25vw] rounded-full border-2 border-zinc-800 flex items-center justify-center">
+                      <i class="text-5xl font-light ri-image-line"></i>
+                    </div>
+                    <h3 id="selectpic" class="text-blue-500 capitalize">select picture</h3>
+                  </div> -->
+              </div>
+              </div>
+              <input class="px-3 py-2 bg-blue-300 text-black font-mono text-[2vh] rounded mt-3" type="Submit">
+            </form>
+          </div>
+     </div>
+   </div>
+   <script>
+     document.querySelector("#selectpic")
+    .addEventListener("click", function(){
+        document.querySelector("#uploadform input").click();
+    });
+   </script>
+   </body>
+</html>
